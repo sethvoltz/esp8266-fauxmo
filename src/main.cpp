@@ -15,7 +15,7 @@
 #define LED_PIN                       2
 #define RELAY_PIN                     12
 #define BUTTON_PIN                    14
-#define DEBOUNCE_MS                   20
+#define DEBOUNCE_MS                   30
 #define HOLD_TIME_MS                  3000
 #define DEFAULT_DEVICE_NAME           "Unknown Light"
 #define DEVICE_NAME_LENGTH            64
@@ -41,6 +41,9 @@ char device_name[DEVICE_NAME_LENGTH] = DEFAULT_DEVICE_NAME;
 
 // Save data flag for setup config
 bool shouldSaveConfig = false;
+
+
+// =-------------------------------------------------------------------------------= Prototypes =--=
 
 
 // =-------------------------------------------------------------------------= Helper Functions =--=
@@ -247,8 +250,6 @@ void handleButton() {
 void setup() {
   // Init serial port and clean garbage
   Serial.begin(SERIAL_BAUDRATE);
-  Serial.println();
-  Serial.println();
 
   // Init Subsystems
   setupFileSystem();
